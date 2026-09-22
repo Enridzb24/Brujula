@@ -1,0 +1,12 @@
+target/
+data/
+.env
+.idea/
+*.log
+node_modules/
+package.json
+package-lock.json
+vite.config.js
+
+brujula.jar
+.github/modernize/

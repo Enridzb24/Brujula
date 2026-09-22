@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#153d35"><meta name="description" content="Organiza tus ingresos, gastos y metas de ahorro con Brújula.">
+ <title>Brújula · Finanzas personales</title>
+ <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="/assets/app.css">
+ <script src="/assets/chart.umd.js" defer></script><script src="/assets/app.js" defer></script>
+</head>
+<body>
+ <div id="loading" class="loading">Preparando tu espacio…</div>
+ <section id="auth" class="auth hidden">
+  <div class="auth-story">
+   <a class="brand" href="/"><span class="brand-mark">↗</span> brújula<span class="brand-dot">.</span></a>
+   <div class="story-copy"><span class="eyebrow">TU DINERO, CON DIRECCIÓN</span><h1>Pequeños hábitos.<br>Grandes planes.</h1><p>Dale un lugar a cada gasto y un propósito a lo que ahorras.</p>
+    <div class="story-card"><div class="story-card-top"><span>Un paso más cerca</span><span>↗</span></div><strong>Tu próxima meta</strong><div class="story-track"><span></span></div><p>Empieza por saber dónde estás.</p></div>
+   </div><small>Finanzas personales · Hecho para tu día a día</small>
+  </div>
+  <div class="auth-panel"><button class="theme-toggle quiet" type="button" aria-label="Cambiar tema">◐</button>
+   <div class="auth-content"><span class="eyebrow">BIENVENIDO A BRÚJULA</span><h2 id="auth-title">Qué bueno verte.</h2><p id="auth-subtitle" class="muted">Entra y continúa con tus planes.</p>
+    <div class="auth-tabs" role="group" aria-label="Acceso"><button id="login-tab" class="active" type="button">Iniciar sesión</button><button id="register-tab" type="button">Crear cuenta</button></div>
+    <form id="auth-form">
+     <label id="name-label" class="hidden">Tu nombre<input name="name" autocomplete="name" maxlength="80" placeholder="¿Cómo te llamas?"></label>
+     <label>Correo electrónico<input name="email" type="email" autocomplete="username" maxlength="160" required placeholder="nombre@correo.com"></label>
+     <label>Contraseña<div class="password-field"><input name="password" type="password" autocomplete="current-password" maxlength="64" required placeholder="Tu contraseña"><button id="show-password" class="quiet" type="button" aria-label="Mostrar contraseña">Ver</button></div></label>
+     <small id="password-help" class="muted hidden">Usa al menos 10 caracteres. Combina palabras, números y símbolos.</small>
+     <p id="auth-error" class="form-error" role="alert"></p><button id="auth-submit" class="primary full" type="submit">Entrar a mi espacio <span>→</span></button>
+    </form><p class="auth-note">Cada cuenta tiene su propio historial, presupuestos y metas.</p>
+   </div>
+  </div>
+ </section>
+ <div id="application" class="app hidden">
+  <aside class="sidebar" id="sidebar">
+   <a href="#dashboard" class="brand"><span class="brand-mark">↗</span> brújula<span class="brand-dot">.</span></a><span class="nav-caption">MI ESPACIO</span>
+   <nav aria-label="Navegación principal">
+    <a href="#dashboard" data-page="dashboard"><span>▦</span> Resumen</a>
+    <a href="#movements" data-page="movements"><span>⇄</span> Movimientos</a>
+    <a href="#budgets" data-page="budgets"><span>◫</span> Presupuestos</a>
+    <a href="#goals" data-page="goals"><span>◎</span> Metas de ahorro</a>
+    <a href="#reports" data-page="reports"><span>▤</span> Reportes</a>
+    <a href="#categories" data-page="categories"><span>⊞</span> Categorías</a>
+    <a href="#admin" data-page="admin" id="admin-link" class="hidden"><span>♧</span> Administración</a>
+   </nav>
+   <div class="sidebar-bottom"><div class="sidebar-tip"><span>UN HÁBITO QUE SUMA</span><p>Registra hoy.<br>Decide mejor mañana.</p></div><button id="logout" class="logout" type="button">↪ <span>Cerrar sesión</span></button></div>
+  </aside>
+  <div class="main-shell"><header class="topbar"><div class="topbar-left"><button id="menu-toggle" class="quiet menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button><span>Finanzas personales</span></div><div class="topbar-right"><span class="currency-chip">PEN · S/</span><button class="theme-toggle quiet" aria-label="Cambiar tema">◐</button><span id="avatar" class="avatar"></span><span id="header-name"></span></div></header>
+   <main id="main" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow" id="page-eyebrow">TU PANORAMA FINANCIERO</p><h1 id="page-title"></h1><p id="page-subtitle" class="muted"></p></div><div class="heading-actions"><label class="month-picker"><span class="sr-only">Mes de consulta</span><input id="month" type="month" required></label><button id="new-movement" class="primary" type="button">＋ Nuevo movimiento</button></div></div>
+    <div id="empty-welcome" class="welcome hidden"><div><strong>Tu primer paso empieza aquí.</strong><p>Registra un ingreso o un gasto. Si prefieres explorar primero, carga los datos de ejemplo en esta cuenta.</p></div><button id="load-sample" class="secondary" type="button">Explorar con ejemplos</button></div>
+    <section id="page-dashboard" class="page"></section>
+    <section id="page-movements" class="page hidden"></section>
+    <section id="page-budgets" class="page hidden"></section>
+    <section id="page-goals" class="page hidden"></section>
+    <section id="page-reports" class="page hidden"></section>
+    <section id="page-categories" class="page hidden"></section>
+    <section id="page-admin" class="page hidden"></section>
+    <footer class="page-footer"><span>brújula.</span><span>Un día a la vez, una decisión mejor.</span></footer>
+   </main>
+  </div>
+ </div>
+ <dialog id="editor"><div class="dialog-heading"><div><span class="eyebrow">TU ESPACIO PERSONAL</span><h2 id="dialog-title"></h2></div><button id="close-dialog" class="quiet" aria-label="Cerrar formulario">×</button></div><form id="editor-form"><div id="form-fields"></div><p id="form-error" class="form-error" role="alert"></p><div class="dialog-actions"><button id="cancel-dialog" type="button" class="secondary">Cancelar</button><button type="submit" class="primary">Guardar</button></div></form></dialog>
+ <dialog id="confirmation"><h2 id="confirm-title">¿Eliminar este registro?</h2><p id="confirm-message" class="muted">Esta acción no se puede deshacer.</p><div class="dialog-actions"><button id="confirm-cancel" class="secondary">Cancelar</button><button id="confirm-ok" class="danger">Eliminar</button></div></dialog>
+ <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+</body>
+</html>

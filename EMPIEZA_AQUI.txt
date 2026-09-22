@@ -1,0 +1,36 @@
+BRUJULA - FINANZAS PERSONALES
+
+1. Descomprime todo este ZIP.
+2. Necesitas Java 25 o superior.
+3. En Windows abre iniciar-windows.bat.
+4. Espera el mensaje Started BrujulaApplication.
+5. Abre http://localhost:8091 en tu navegador.
+6. Crea tu cuenta y entra.
+7. Para explorar, pulsa Explorar con ejemplos en una cuenta vacia.
+
+No necesitas instalar Maven, MySQL ni XAMPP para esta primera prueba.
+El inicio rapido guarda la informacion en una base SQL local (H2).
+Manten abierta la ventana del servidor mientras utilices la web.
+
+CODIGO Y BASE DE DATOS
+Abre la carpeta del proyecto en Visual Studio Code.
+El archivo README.md explica la ejecucion y la estructura.
+docs/BASE_DE_DATOS.md explica MySQL y MariaDB/phpMyAdmin.
+docs/APRENDIZAJE.md propone como reconstruirlo desde cero.
+
+ADMINISTRADOR
+Primero crea tu cuenta. Luego sigue docs/ADMINISTRADOR.md.
+No hay contrasenas compartidas ni usuarios preinstalados.
+
+CELULAR
+Conecta el celular a la misma Wi-Fi que tu computadora.
+Abre http://IP_DE_TU_COMPUTADORA:8091.
+La direccion se obtiene con ipconfig en Windows.
+Lee los detalles en README.md.
+
+VISTA PREVIA
+La carpeta vista-previa contiene capturas y ejemplos de los PDF.
+Esos ejemplos son ficticios y no se cargan automaticamente en tu base.
+
+Este ZIP no incluye un alojamiento publico en Internet.
+La aplicacion funciona en tu equipo; publicarla requiere un servidor Java.
